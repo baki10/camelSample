@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+  <import resource="jms/jms-setup-2.xml"/>
+
+  <context:component-scan base-package="com.bakigoal.routes"/>
+
+  <camelContext xmlns="http://camel.apache.org/schema/spring">
+    <contextScan/>
+    <dataFormats>
+      <xstream id="myXstream"/>
+      <json id="json" library="Jackson"/>
+    </dataFormats>
+  </camelContext>
+
+</beans>
